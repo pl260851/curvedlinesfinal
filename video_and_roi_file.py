@@ -25,11 +25,11 @@ def capture_and_process_video():
                 print("Failed to grab frame")
                 break
 
-            # Process the frame to detect edges within the region of interest.
+            # Process the frame to detect edges within the roi.
             masked_canny = process_image_for_curves(frame, roi_vertices)
             # Find contours in the processed frame and draw them along with the midline.
             find_and_draw_contours(frame, masked_canny)
-            # Draw the region of interest on the frame.
+            # Draw the roi on the frame.
             draw_roi(frame, roi_vertices)
 
             cv2.imshow("Frame", frame)
@@ -43,14 +43,14 @@ def capture_and_process_video():
         print("Failed to read frame from camera")
 
 def define_roi(frame):
-    # Define the region of interest based on the frame size.
+    #The roi based on the frame size.
     rows, cols, _ = frame.shape
     roi_width = cols * 0.6
     roi_height = rows * 0.6
     top_left_vertex = (int((cols - roi_width) / 2), int((rows - roi_height) / 2))
     bottom_right_vertex = (int((cols + roi_width) / 2), int((rows + roi_height) / 2))
 
-    # Return the vertices of the region of interest.
+    # Return the vertices of the roi.
     roi_vertices = np.array([
         top_left_vertex,
         (top_left_vertex[0], bottom_right_vertex[1]),
