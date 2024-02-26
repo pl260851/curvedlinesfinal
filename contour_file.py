@@ -1,5 +1,5 @@
 import cv2
-
+#https://docs.opencv.org/4.x/d4/d73/tutorial_py_contours_begin.html
 def draw_midline(img, contours):
     # Check if exactly two contours are provided.
     if len(contours) != 2:
@@ -14,6 +14,8 @@ def draw_midline(img, contours):
     # Draw lines connecting the midpoints to form the midline.
     for i in range(len(midpoints) - 1):
         cv2.line(img, midpoints[i], midpoints[i + 1], (255, 255, 0), 2)
+
+#https://medium.com/analytics-vidhya/opencv-findcontours-detailed-guide-692ee19eeb18
 
 def find_and_draw_contours(img, canny_image):
     # Find contours in the Canny image.
