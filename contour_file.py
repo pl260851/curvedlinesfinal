@@ -1,11 +1,11 @@
 import cv2
 
 def draw_midline(img, contours):
-    # Check if exactly two contours are provided. If not, exit the function.
+    # Check if exactly two contours are provided.
     if len(contours) != 2:
         return
 
-    # Calculate midpoints between the corresponding points of the two contours.
+    # Calculate midpoints between the points of the two contours.
     midpoints = []
     for point_set_1, point_set_2 in zip(contours[0], contours[1]):
         midpoint = ((point_set_1[0][0] + point_set_2[0][0]) // 2, (point_set_1[0][1] + point_set_2[0][1]) // 2)
