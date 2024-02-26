@@ -1,6 +1,8 @@
 import cv2
 import numpy as np
 
+#https://docs.opencv.org/4.x/d0/d86/tutorial_py_image_arithmetics.html
+
 def region_of_interest(img, vertices):
     # Create a mask
     mask = np.zeros_like(img)
