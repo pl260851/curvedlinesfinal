@@ -1,0 +1,4 @@
+from video_and_roi_file import capture_and_process_video
+
+if __name__ == "__main__":
+    capture_and_process_video()
